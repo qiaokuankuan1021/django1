@@ -1,0 +1,221 @@
+{% load static from staticfiles %}
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+	<meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <title>商品首页</title>
+
+    <!-- Bootstrap -->
+    <link href="{% static 'myweb/css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{% static 'myweb/js/jquery-1.12.4.min.js' %}"></script>
+    <script src="{% static 'myweb/js/bootstrap.min.js' %}"></script>
+    {%block block_css%}
+    {% endblock %}
+    
+
+</head>
+<body>
+		<!-- 导航 -->
+	<nav class="navbar navbar-inverse  navbar-fixed-top " style="background: #0A0A0A">
+		<div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+					<a href="{% url 'index' %}"><img class="tubiao" src="{% static 'myweb/img/tubiao.png' %}"></a>
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		    </div>
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav navbar-left ">
+		        
+		        <li class="dropdown zxsc">
+	                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">在线商城 <span class="caret"></span></a>
+	                 <ul class="dropdown-menu">
+	                   <li><a href="#">坚果 Pro</a></li>
+	                   <li><a href="#">Smartian M1/M1L</a></li>
+	                   <li><a href="#">Smartisan OS</a></li>
+	                   <li><a href="#">欢喜云</a></li>
+	                 </ul>
+		        </li>
+		        	<li><a href="{% url 'list' %}">全部商品</a></li>
+		        	{% for i in typeslist %}
+					<li><a href="{% url 'list' i.id %}">{{i.name}}</a></li>
+					{% endfor %}
+		       <!--  <p class="navbar-text">在线商城</p>
+			      <p class="navbar-text">坚果 Pro</p>
+			      <p class="navbar-text">Smartian M1/M1L</p>
+			      <p class="navbar-text">Smartisan OS</p>
+			      <p class="navbar-text">欢喜云</p> -->
+			     
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right daozi" >
+		      	  <li class="active"><a href="#" style="color:#9D9D9D">官方论坛</a></li>
+		      	  
+		      	  
+				  {% if request.session.zaixian == 'False' %}:
+				  <li >
+				  	<a href="{% url 'login' %}" >登录</a>
+				  </li>
+				  {% elif request.session.zaixian == 'True' %}
+				  <li >
+				  	<a href="{% url 'zhongxin' %}">hello {{request.session.webuser.name}} </a>
+				  </li>
+				  {% endif %}
+		      	  
+		      	  <li>
+					<a href="{% url 'logout' %}">退出</a>
+		      	  </li>
+		      	  
+			      <li class="layout-header-service-item layout-header-service-cart" id="layoutHeaderCart">
+			          <a class="layout-header-service-link" href="{% url 'shopcart' %}" data-mtype="wmz_public_yt_cart">
+			              <i class="glyphicon glyphicon-shopping-cart"></i>
+			              <span class="layout-header-service-cart-num">{{request.session.shoplist|length}}</span>
+			          </a>
+			      </li>
+						
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container-fluid -->
+	<!-- end 导航 -->
+	</nav>
+	<!-- <div class="cart clearfix"></div> -->
+	{%block webbody%}
+
+	{% endblock %}
+	
+
+	<hr>
+	<!-- 尾部 -->
+	<footer class="footer ">
+	    <div class="container-fluid" style="background: #FAFAFA">
+	       <div class="row">
+			<div class="col-xs-10 col-xs-offset-1" style="margin-top:40px;">
+				    <div class="row footer-top">
+				      <div class="col-xs-12 col-sm-9 col-md-9 col-md-offset-0">
+				        <div class="weizi row about ">
+				          <div class="col-xs-4 col-sm-3 col-md-2" >
+				            <h3>订单服务</h3>
+				            <ul class="list-unstyled">
+				              <li><a href="/about/">购买指南</a></li>
+				              <li><a href="/ad/">支付方式</a></li>
+				              <li><a href="/links/">送货政策</a></li>
+				            </ul>
+				          </div>
+				          <div class="col-xs-4 col-sm-3 col-md-2">
+				            <h3>服务支持</h3>
+				            <ul class="list-unstyled">
+				              <li><a href="#" target="_blank">维修门店</a></li>
+				              <li><a href="#">零售门店</a></li>
+				            </ul>
+				          </div>
+				          <div class="col-xs-4 col-sm-3 col-md-2">
+				            <h3>自助服务</h3>
+				            <ul class="list-unstyled">
+				              <li><a href="#" target="_blank">热点咨询</a></li>
+				              <li><a href="" target="_blank">预约购买</a></li>
+				              <li><a href="" target="_blank">订单物流</a></li>
+				            </ul>
+				          </div>
+				          <div class="col-xs-4 col-sm-3 col-md-2">
+				            <h3>媒体中心</h3>
+				            <ul class="list-unstyled">
+				              <li><a href="" target="_blank">新闻动态</a></li>
+				              <li><a href="" target="_blank">官方视频</a></li>
+				              <li><a href="" target="_blank">图片资源</a></li>
+				            </ul>
+				          </div>
+				          <div class="col-xs-4 col-sm-3 col-md-2">
+				            <h3>关于公司</h3>
+				            <ul class="list-unstyled">
+				              <li><a href="" target="_blank">公司简介</a></li>
+				              <li><a href="" target="_blank">加入我们</a></li>
+				              <li><a href="" target="_blank">联系我们</a></li>
+				            </ul>
+				          </div>
+				          <div class="col-xs-4 col-sm-3 col-md-2">
+				            <h3>关注我们</h3>
+				            <ul class="list-unstyled">
+				              <li><a href="" target="_blank">新浪微博</a></li>
+				              <li><a href="" target="_blank">官方微信</a></li>
+				              <li><a href="" target="_blank">贴吧论坛</a></li>
+				            </ul>
+				          </div>
+				        </div>
+				      </div>
+				      <div class="col-xs-8 col-sm-3 col-md-3 col-md-offset-0">
+				      	<div class="row">
+				      		<div class="col-xs-12 col-md-10">
+								<ul class="list-unstyled">
+							        <li><a href="" target="_blank" class="dianhua">400-619-0909</a></li>
+							        <li><a href="" class="shijian">周一至周日 9:00-18:00 (仅售市话费)</a></li>
+							        <li>
+										<button type="button" class="zxbz btn btn-default ">在线帮助</button>
+							        </li>
+					       	 	</ul>	
+				      		</div>
+							
+					  	</div>
+				      	
+				      </div>
+				    </div>
+
+				    <hr>
+				    <div class="row footer-bottom">
+				    	<div class="col-md-10">
+					      <ul class="list-inline ">
+						    <li>
+						         <a href="#" target="_blank" class="copy">Copyright © 2017, Smartisan Digital Co., Ltd. All Rights Reserved.北京锤子数码科技有限公司
+						          </a>
+					        </li>
+					        <li class="dibu">
+					        	<a href="">法律声明</a>
+					        </li>
+					        <li class="dibu">
+					        	<a href="">隐私条款</a>
+					        </li>
+					        <li class="dibu">
+					        	<a href="">开发者中心</a>
+					        </li>
+					     </ul>
+					     <li class="xia"> 京ICP备14041720号-1&nbsp;京ICP证140622号 &nbsp;京公网安备11010502025474 </li>
+		    			</div>
+				      	    			<div class="col-md-2">
+				      						<div class="dropup">
+				      						  <button class="btn btn-default dropdown-toggle " type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				      						   	<div class="guoqi"></div>
+				      						   	<div class="ying">&nbsp;&nbsp;中文&nbsp;&nbsp;</div>
+				      						    <span class="caret"></span>
+				      						  </button>
+				      						  <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
+				      						    <li>
+				      						    	<div class="meiguo"></div>
+				      									<div class="zw">&nbsp;&nbsp;English&nbsp;&nbsp;</div>
+				      						    </li>
+				      						  </ul>
+				      						</div>
+				      	    			</div>
+				    </div>
+				  </div>
+			</div>
+	    </div>
+	</footer>      
+	
+	<!-- 返回顶部 -->
+	<div class="fding visible-lg">
+		<a href="">
+			<img src="{% static 'myweb/img/ding.png' %}" alt="">
+		</a>
+	</div>
+	{%block webwei%}
+	{% endblock %}
+</body>
+{% block block_js %}
+{% endblock %}
+</html>

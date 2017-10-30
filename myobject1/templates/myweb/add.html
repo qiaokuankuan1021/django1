@@ -1,0 +1,139 @@
+{% extends "myweb/base.html" %}
+{% load static from staticfiles %}
+<!-- css样式 -->
+{%block block_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/denglu.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/shouye.css' %}">
+{% endblock %}
+
+
+{%block webbody%}
+<!-- 主体 -->
+<div class="container-fluid">
+	<div class="row" style="text-align: center ">
+		<legend>添加会员信息</legend>
+	</div>
+	<div class="row">
+		<div class="col-sm-8 col-sm-offset-2 ">
+			<div class="panel panel-default">
+					<div class="row">
+						<div class="col-md-5 col-md-offset-3">
+						<form class="form-horizontal" action="{% url 'userinsert' %}" method="post">
+							{% csrf_token %}
+							<br>
+						  <div class="form-group " >
+						    <label for="inputEmail3" class="col-sm-4 control-label">账号 :</label>
+						    <div class="col-sm-6">
+						      <input type="text" class="form-control" id="inputEmail3" name="username">
+						    </div>
+						  </div>
+
+						  <div class="form-group " >
+						    <label for="inputEmail3" class="col-sm-4 control-label">姓名 :</label>
+						    <div class="col-sm-6">
+						      <input type="text" class="form-control" id="inputEmail3" name="name">
+						    </div>
+						  </div>
+
+						  <div class="form-group " >
+						    <label for="inputEmail3" class="col-sm-4 control-label">密码 :</label>
+						    <div class="col-sm-6">
+						      <input type="password" class="form-control" id="inputEmail3" name="password">
+						    </div>
+						  </div>
+						  <div class="form-group " >
+						    <label for="inputEmail3" class="col-sm-4 control-label">再次密码 :</label>
+						    <div class="col-sm-6">
+						      <input type="password" class="form-control" id="inputEmail3" name="password1">
+						    </div>
+						  </div>
+
+						  <div class="form-group " >
+						    <label for="inputEmail3" class="col-sm-4 control-label">性别 :</label>
+						    <div class="col-sm-8">
+						     <label class="radio-inline">
+						       <input type="radio" name="sex" id="inlineRadio1" value="0"> 男
+						     </label>
+						     <label class="radio-inline">
+						       <input type="radio" name="sex" id="inlineRadio2" value="1"> 女
+						     </label>
+						    </div>
+						  </div>
+							 <div class="form-group " >
+						    <label for="inputEmail3" class="col-sm-4 control-label">邮编 :</label>
+						    <div class="col-sm-6">
+						      <input type="text" class="form-control" id="inputEmail3" name="code" >
+						    </div>
+						  </div>
+						  <div class="form-group " >
+						    <label for="inputEmail3" class="col-sm-4 control-label">邮箱 :</label>
+						    <div class="col-sm-6">
+						      <input type="text" class="form-control" id="inputEmail3" name="email" >
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputPassword3" class="col-sm-4 control-label">电话 :</label>
+						    <div class="col-sm-6">
+						      <input type="text" class="form-control" id="inputPassword3" name="phone">
+						    </div>
+						  </div>
+						  <div class="form-group">
+						    <label for="inputPassword3" class="col-sm-4 control-label">家庭住址 :</label>
+						    <div class="col-sm-6">
+						      	<textarea class="input-xlarge" id="textarea" name="address" rows="4"></textarea>
+						    </div>
+						  </div>
+
+
+						  <div class="form-group">
+						    <div class="col-sm-offset-4 col-sm-10">
+						      <button type="submit" class="btn">添加</button>
+						      &nbsp;&nbsp;&nbsp;
+								<button type="reset" class="btn">重置</button>
+								<span class="shuom" style="color:red;margin-left:10px">{{info}} </span>
+						    </div>
+						  </div>
+						</form>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+</div>
+
+
+{% endblock %}
+
+
+{%block webwei%}
+<script>
+	$('input[name=password1]').blur(function(){
+		var a =$(this).val();
+		var b =$('input[name=password]').val();
+		if(a == b){
+			passok=true;
+		}else{
+			passok=false;
+		}
+
+	})
+	$('input[name=email]').blur(function(){
+		var v=$(this).val();
+		var reg=/^\w+@\w{2,5}\.(com|cn)$/;
+		var res=reg.test(v);
+		if(!res){
+			$('.shuom').html('注意: 邮箱格式不正确')
+		}
+	})
+	
+	$('form').submit(function(){
+		$('input').trigger('blur');
+		if(passok){
+			return true;
+		}
+		$('.shuom').html('注意: 密码输入不一致')
+		return false;
+		
+		})
+</script>
+{%endblock%}

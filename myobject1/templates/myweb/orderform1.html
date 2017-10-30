@@ -1,0 +1,127 @@
+{% extends "myweb/base.html" %}
+{% load static from staticfiles %}
+{%block block_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/gouwuche.css' %}">
+{% endblock %}
+	
+{%block webbody%}
+	<div class="container">
+		<div class="container">
+
+		<div class="row clearfix">
+			<div class="col-md-4 column">
+			</div>
+
+			<div class="col-md-5 column">
+				<div class="panel panel-default">
+					<div class="row">
+						<div class="col-md-9 col-md-offset-2">
+
+				<div><h2 style="margin-left: 60px ">收货地址</h2></div>
+				<form role="form" class="form-horizontal " action="{% url 'orderconfirm' %}" method="post">
+				{% csrf_token %}
+				<fieldset>
+					<div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label">收件人</label>
+					    <div class="col-sm-5">
+					      <input type="text" class="form-control" name="name" id="inputEmail3" value="{{request.session.webuser.name}}">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label">邮编</label>
+					    <div class="col-sm-5">
+					      <input type="text" class="form-control" name="code" id="inputEmail3" value="{{request.session.webuser.code}}">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label">地址</label>
+					    <div class="col-sm-5">
+					      <input type="text" class="form-control" name="address" id="inputEmail3" value="{{request.session.webuser.address}}">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label">电话</label>
+					    <div class="col-sm-5">
+					      <input type="text" class="form-control" name="phone" id="inputEmail3" value="{{request.session.webuser.phone}}">
+					    </div>
+					  </div>
+					  <div class="form-group">
+					    <label for="inputEmail3" class="col-sm-3 control-label">总金额</label>
+					    <div class="col-sm-5" style="margin-top:5px;">
+					      <span >¥:{{request.session.total}}元</span>
+					    </div>
+					  </div>
+
+					 <div class="form-group">
+					     <div class="col-sm-offset-3 col-sm-10">
+					       <button type="submit" class="btn btn-default">提交</button>
+					     </div>
+					   </div>
+
+				</fieldset>
+				</form>
+			</div>
+			</div>
+			</div>
+			</div>
+
+			<div class="col-md-4 column">
+			</div>
+			
+
+
+		</div>
+
+		<div class="row clearfix">
+				<div class="col-md-12 column">
+				<hr>
+					<div style="text-align: center "><h2>购物清单</h2></div>
+				<hr>
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>ID号</th>
+								<th>名称</th>
+								<th>图片</th>
+								<th>单价</th>
+								<th>数量</th>
+								<th>小计</th>
+							</tr>
+						</thead>
+
+						<tbody>
+							{% for shop in request.session.orderlist.values %}
+							<tr class="success">
+								<td>
+									{{shop.id}}
+								</td>
+								<td>
+									{{shop.goods}}
+								</td>
+								<td>
+									<img src="/static/goods/s_{{shop.picname}}" width="50">
+								</td>
+								<td>
+									{{shop.price}}
+								</td>
+								<td>
+									{{shop.m}}
+								</td>
+								<td>
+									{% widthratio shop.price 1 shop.m %}
+								</td>
+							</tr>
+						</tbody>
+						{% endfor %}
+					</table>
+
+					
+				</div>
+		</div>
+		</div>
+	</div>
+{% endblock %}
+
+{% block block_js %}
+<!-- <script src="{% static 'myweb/js/gouwuche.js' %}"></script> -->
+{% endblock %}

@@ -1,0 +1,259 @@
+body,div,img,a,ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+.clearfix:after,.clearfix:before{ content: "";display: table;}
+.clearfix:after{ clear:both;}
+.clearfix{zoom:1;}
+body { padding-top: 70px; background: #EDEDED}
+/*导航*/
+.tubiao{
+	margin-left: 50px;
+}
+.zxsc{
+	margin-left: 20px;
+}
+.daozi{
+	margin-right: 50px;
+}
+.daozi li{
+	margin-left: 20px;
+}
+.hangss p{
+	margin-left: 20px;
+	float: left;
+}
+.hangss img{
+	margin-left: 20px;
+	float: left;
+}
+
+/*购物清单*/
+.gouwu{
+
+}
+.xinxi{
+	padding-bottom: 10px;
+	border-bottom: 1px solid #DBDBDB;
+}
+.xinxi div{
+	font-size: 12px;
+	color: #838383;
+}
+.zhanshi1{
+	border-bottom: 1px dotted #EEEEEE;
+	padding:20px 0px ;
+}
+.quan{
+	height: 20px;
+	width: 19px;
+	background: url('../img/dl/5.png') 0 -18px ;
+	cursor: pointer;
+	margin-top: 30px;
+	float: left;
+	margin-right: 20px;
+
+}
+
+.tupian img{
+	padding: 0px;
+	float: left;
+}
+
+.tupian .jieshao{
+	float: left;
+	margin-left: 10px;
+}
+.tupian h3{
+	font-size: 14px;
+
+}
+.tupian .jieshao h6{
+	color: #999;
+}
+.zhanshi1 .jiage{
+	line-height: 80px;
+	font-size: 14px;
+	color: #666666;
+	text-align: center;
+}
+/*设置加减1*/
+.zhanshi1 div{
+	float: left;
+}
+.zhanshi1 .jiajian div {
+	margin-top: 20px;
+}
+.zhanshi1 .yi1{
+    height: 60px;
+    line-height: 40px;
+    margin-right: 17px;
+}
+.zhanshi1 .jian{
+	width:40px;
+	height: 40px;
+	background: url(../img/xq/5.png) -5px -60px ;
+	margin-right: 15px;
+}
+.zhanshi1 .jian:hover{
+	background: url(../img/xq/5.png) -5px -180px;
+}
+.zhanshi1 .jia{
+	width:40px;
+	height: 40px;
+	background: url(../img/xq/5.png) ;
+}
+.zhanshi1 .jia:hover{
+	background: url(../img/xq/5.png) 0px -120px;
+}
+/*操作*/
+.zhanshi1 .caozuo{
+	height: 81px;
+}
+.zhanshi1 .caozuotu{
+	width: 24px;
+	height: 24px;
+	margin: 0 auto;
+	background: url(../img/gwc/2.jpg) ;
+	margin-top: 25px;
+	margin-left: 20px;
+}
+.zhanshi1 .caozuotu:hover{
+	background:url('../img/gwc/2.jpg') 0px -36px;
+}
+
+/*全选*/
+.quanx{
+	margin-top: 20px;
+}
+.quanx .quan{
+	margin:0px auto;
+	margin-left: 15px;
+	margin-right: 10px;
+}
+.quanx .gang{
+	float: left;
+	color: #C4BBCD;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.quanx .shan{
+	float: left;
+	font-size: 12px;
+	color: #C4BBCD;
+	margin-left: 10px;
+}
+.quanx .xuan{
+	float: left;
+	font-size: 14px;
+	color: #666666;
+}
+.zg{
+	border-right: 1px solid #E1E1E1;
+}
+.zg h4{
+	font-size: 16px;
+	float: right;
+}
+.zg h4 span{
+	color: #D44D44;
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.zg h5{
+	float: right;
+	margin-top: 0px;
+	font-size: 16px;
+	color: #959595;
+}
+.zg h5 span{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+/*应付金额*/
+.jine{
+	padding: 0px;
+	text-align: center;
+}
+.jine h4{
+	font-size: 16px;
+}
+.jine h4 span{
+	color: #D44D44;
+}
+.jine h5{
+	color: #959595;
+}
+.jiesuan{
+	padding: 0px;
+}
+.jiesuan button{
+	margin-top: 8px;
+}
+
+/*尾部*/
+.weizi h3{
+	font-size: 12px;
+	color: #646464;
+}
+.weizi li a{
+	font-size: 12px;
+	color: #969696;
+}
+.dianhua{
+	font-size: 30px;
+	float: right;
+}
+.shijian{
+	color: #CBC3D2;
+	font-size: 14px;
+	float: right;
+}
+
+.zxbz{
+	color: #5098E4;
+	float: right;
+}
+.copy{
+	color: #757575;
+	font-size: 12px;
+}
+.dibu a{
+	font-size: 12px;
+	border-left: 1px solid #CCCCCC;
+	padding-left: 10px;
+}
+.xia{
+	font-size: 12px;
+	color: #C7BDC7;
+}
+.guoqi{
+	width: 16px;
+	height: 15px;
+	background: url(../img/guoqi.png);
+	float: left;
+	margin-top: 2px;
+}
+.zw{
+	float: left;
+	font-size: 12px;
+	margin-top: 2px;
+}
+.meiguo{
+	float: left;
+	margin-left: 2px;
+	width: 16px;
+	height: 15px;
+	background: url(../img/guoqi.png) 0px 50px;
+	margin-top: 2px;
+}
+.ying{
+	float: left;
+	font-size: 12px;
+}
+.fding{
+	position: fixed;
+	top: 85%;
+	left: 95%;
+}

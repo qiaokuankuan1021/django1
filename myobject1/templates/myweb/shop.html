@@ -1,0 +1,107 @@
+{% extends "myweb/base.html" %}
+{% load static from staticfiles %}
+{%block block_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/gouwuche.css' %}">
+{% endblock %}
+
+{%block webbody%}
+<!-- 主体开始 -->
+	<div class="container">
+		<div class="row">
+			<div class="panel panel-default">
+			    <div class="panel-heading gouwu">
+			    	<h3>购物清单</h3>
+			    </div>
+			    <!-- 购物内容 -->
+			  	<div class="panel-body">
+					<div class="col-xs-12">
+						<!-- 商品信息行 -->
+						<div class="row xinxi">
+							<div class="col-md-7 col-xs-4">商品信息</div>
+							<div class="col-md-1 col-xs-2" style="text-align: center">单价</div>
+							<div class="col-md-2 col-xs-2" style="text-align: center">数量</div>
+							<div class="col-md-1 col-xs-2" style="text-align: center">小计</div>
+							<div class="col-md-1 col-xs-2" style="text-align: center">操作</div>
+						</div>
+					{% for shop in request.session.shoplist.values %}
+					<!--  展示1-->
+					<!-- <form action="{% url 'shopcartchange' %}" method="get"> -->
+					<!-- {% csrf_token %} -->
+						<div class="row zhanshi1">
+							<div class="col-md-7 col-xs-12 tupian" >
+								<div class="quan aa1" gid="{{shop.id}}" price="{% widthratio shop.price 1 shop.m %}" ></div>
+								<img src="/static/goods/s_{{shop.picname}} " alt="..." class="img-thumbnail" width="81px">
+								<div class=" jieshao">
+									<h3>{{shop.goods}}</h3>
+									<h6>{{shop.descr}}</h6>
+								</div>
+							</div>
+							<!-- 价格 -->
+							<div class="col-md-1 col-xs-2 jiage" >
+								¥{{shop.price}}
+							</div>
+							<!-- 加减 -->
+							<div class="col-md-2 col-xs-5" style="margin-top:25px">
+                        <div style="height:2rem" class="hidden-xs"></div>
+                        <button class="col-md-2 btn-1 col-xs-2,  mz-adder-subtract" onclick="window.location='{% url 'shopcartchange' %}?gid={{shop.id}}&m={{shop.m|add:-1}}'">-</button>
+
+                        <input id="zongshu" class="col-md-4 col-xs-2 " type="text" value="{{shop.m}}" name="m">
+
+                        <button onclick="window.location='{% url 'shopcartchange' %}?gid={{shop.id}}&m={{shop.m|add:1}}'" class="col-md-2 btn-2 col-xs-2, mz-adder-add">+</button>
+                    	</div>
+							<!-- 小计 -->
+							<div class="col-md-1 col-xs-2 jiage xiaoji">
+								¥{% widthratio shop.price 1 shop.m %}
+							</div>
+
+							<!-- 操作 -->
+							<div class="col-md-1 col-xs-2  caozuo ">
+								<a href="{% url 'shopdel' shop.id %}"><div class="caozuotu"></div>
+							</div></a>
+					<!-- 展示1结束 -->
+						</div>
+					<!-- </form> -->
+					{% endfor %}
+					</div>
+			  	</div>
+			  	<!-- 结算尾部 -->
+			  	<div class="panel-footer">
+					<div class="row ">
+						<div class="col-md-6 col-xs-12 col-sm-5 quanx " >
+							<div class="quan quans"></div>
+							<span class="xuan">全选</span>
+							<span class="gang">|</span>
+							<div class="quan fans"></div>
+							<span class="xuan">反选</span>
+
+							<a href="{% url 'shopclear' %}" class="btn btn-danger  active" role="button" style="margin-left: 20px ">清空购物车</a>
+						</div>
+						<div class="col-md-2 col-xs-6 col-sm-3 zg">
+							<h4>已选择<span>0</span>件产品</h4>
+							<h5>共计<span>0</span>件产品</h5>
+						</div>
+						<div class="col-md-2 col-xs-6  col-sm-3 jine">
+							<h4>应付金额:<span>0.00</span></h4>
+							<h5>应付总额不含运费</h5>
+						</div>
+						<div class="col-md-1 col-xs-12 col-sm-12 jiesuan" >
+							<button  onclick="window.location='{% url 'orderform' %}?gids='+loadTotal().join(',')" type="button" class="btn btn-primary btn-lg">现在结算</button>
+						</div>
+					</div>
+				<!-- end结算尾部 -->
+			  	</div>
+				
+			</div>
+		</div>
+
+	</div>
+	<script>
+	// 所有列表
+	// loadTotal();
+	var sidlist = []
+	</script>
+{% endblock %}
+
+{% block block_js %}
+<script src="{% static 'myweb/js/gouwuche.js' %}"></script>
+{% endblock %}

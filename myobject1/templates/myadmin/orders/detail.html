@@ -1,0 +1,119 @@
+{% extends "myadmin/base.html" %}
+{%block mainhead%}
+
+{%endblock%}
+{%block mainbody%}
+	<h3>
+		浏览商品信息
+	</h3>
+
+	<div class="row">
+	
+		<div class="span3">
+			<table class="table">
+				<div style=" ">
+					<h2>购买信息</h2>
+					<br>
+				</div>
+				<tr align="center">
+					<td>订单id号</td>
+					<td>{{orders.id}}</td>
+				</tr>
+				<tr align="center">
+					<td>会员id号</td>
+					<td>{{orders.uid}}</td>
+				</tr>
+				<tr align="center">
+					<td>购买时间</td>
+					<td>{{times}}</td>
+				</tr>
+				<tr align="center">
+					<td>总金额</td>
+					<td>¥{{orders.total}}元</td>
+				</tr>
+				<tr align="">
+				{% if orders.status == 0 %}
+					<td colspan="1" align="center"><a class="btn btn-default" href="{% url 'myadmin_detailform' orders.id %}" >发货</a></td>
+				{% elif orders.status == 1 %}
+					<td colspan="1" align="center"><a class="btn btn-default" href="" >发货完成</a></td>
+				{% elif orders.status == 2 %}
+					<td colspan="1" align="center"><a class="btn btn-default" href="" >售后</a></td>
+				{% elif orders.status == 3 %}
+					<td colspan="1" align="center"><a class="btn btn-default" href="" >取消订单</a></td>
+				{% endif %}
+
+					<td colspan="1" align="center"><a class="btn btn-default" href="" >取消</a></td>
+				</tr>
+			</table>
+		</div>
+	
+		<div class="span1"></div>
+
+
+		<div class="span3">
+			<div style=" ">
+				<h2>收件信息</h2>
+				<br>
+				<table class="table">
+				<div style=" ">
+				</div>
+				<tr align="center">
+					<td>收件人</td>
+					<td>{{orders.linkman}}</td>
+				</tr>
+				<tr align="center">
+					<td>电话</td>
+					<td>{{orders.phone}}</td>
+				</tr>
+				<tr align="center">
+					<td>邮编</td>
+					<td>{{orders.code}}</td>
+				</tr>
+				<tr align="center">
+					<td>地址</td>
+					<td>{{orders.address}}</td>
+				</tr>
+				<tr align="center">
+					<td></td>
+					<td></td>
+				</tr>
+				</table>
+			</div>
+		</div>
+
+	</div>
+
+
+
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>id</th>
+				<th>订单id号</th>
+				<th>商品id号</th>
+				<th>商品名称</th>
+				<th>商品图片</th>
+				<th>单价</th>
+				<th>数量</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for details in detailslsit %}
+				<tr>
+					<td>{{details.id}}</td>
+					<td>{{details.orderid}}</td>
+					<td>{{details.goodsid}}</td>
+					<td>{{details.name}}</td>
+					<td>
+					<img src="/static/goods/s_{{details.picname}}" alt="" width="40px">
+					</td>
+					<td>{{details.price}}</td>
+					<td>{{details.num}}</td>
+
+				</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>
+
+{%endblock%}

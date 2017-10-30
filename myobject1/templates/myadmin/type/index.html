@@ -1,0 +1,54 @@
+{% extends "myadmin/base.html" %}
+{%block mainhead%}
+<script>
+	function doDel(uu){
+		if(confirm('确定要删除吗?')){
+			window.location=uu;
+		}
+	}
+</script>
+{%endblock%}
+{%block mainbody%}
+	<h3>
+		浏览用户信息
+	</h3>
+	<table class="table table-bordered table-striped" >
+		<thead>
+			<tr align="center">
+				<th>
+					id
+				</th>
+				<th>
+					分类名称
+				</th>
+				<th>
+					父类id号
+				</th>
+				<th>
+					分类路径
+				</th>
+
+				<th>
+					操作
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for type in typelist %}
+				<tr>
+					<td>{{type.id}}</td>							
+					<td>{{type.pname}}|{{type.name}}</td>				
+					<td>{{type.pid}}</td>				
+					<td>{{type.path}}</td>
+					<td>
+						<a class="btn btn-default" href="{% url 'myadmin_shoptypeadd' type.id %}">添加子类别</a>
+						<a class="btn btn-default" href="{% url 'myadmin_shoptypeedit' type.id %}">编辑</a>			
+						<a class="btn btn-default" href="javascript:doDel('{% url 'myadmin_shoptypedel' type.id %}');">删除</a>
+					</td>				
+
+				</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>
+{%endblock%}

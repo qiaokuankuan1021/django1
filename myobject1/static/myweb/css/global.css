@@ -1,0 +1,44 @@
+common*/
+html{
+    font-family: Arial,Helvetica,sans-serif,"宋体";
+    text-align: left;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+body{
+	font-size: 14px;
+	color:#666;
+	margin: 0;
+	padding: 0;
+	position: relative;
+	padding-top:81px;
+}
+body a:hover{
+	text-decoration:none;
+}
+div,p,h2,h3,dl,dt,dd{
+	padding: 0;
+	margin: 0;
+}
+ul,li{
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+/*.clearfix:after,.clearfix:before{ content: "";display: table;}
+.clearfix:after{ clear:both;}
+.clearfix{zoom:1;}
+.container-fluid{
+	padding: 0;
+}
+.container{
+	width: 1240px;
+	margin: 0 auto;
+	padding: 0;
+}
+.nav > li .dropdown-menu {
+  margin: 0;
+}
+.nav > li:hover .dropdown-menu {
+  display: block;
+}*/

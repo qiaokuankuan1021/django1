@@ -1,0 +1,13 @@
+{% extends "myweb/base.html" %}
+{% load static from staticfiles %}
+{% block block_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/shouye.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/denglu.css' %}">
+{% endblock %}
+
+{%block webbody%}
+<li style="list-style: none ;text-align:center">{{info}}</li>
+{% endblock %}
+{% block block_js %}
+<script src="{% static 'myweb/js/shouye.js' %}"></script>
+{% endblock %}

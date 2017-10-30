@@ -1,0 +1,125 @@
+{%extends "myweb/base.html" %}
+{%load static from staticfiles %}
+{%block details_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/gouwuche.css' %}">
+{%endblock%}
+{%block webbody%}
+<!-- 模态框（Modal） -->
+
+<div class="container">
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				收货信息
+			</h3>
+		</div>
+		<div class="panel-body">
+		<!-- Button trigger modal -->
+			<button type="text" class="btn btn-default btn-lg" data-toggle="modal" data-target="#myModal">
+			  <img src="{% static 'myweb/img/2017-09-16_230541.jpg'%}" alt="...">
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">收货地址</h4>
+			      </div>
+			      <form role="form" class="form-horizontal " action="{% url 'orderconfirm' %}" method="post">
+				{% csrf_token %}
+			      <div class="modal-body">
+			         <div class="row">
+			         	<div class="col-md-8 col-md-offset-2">
+				             <div class="input-group">
+				               <span class="input-group-btn">
+				                 <button class="btn btn-default" type="button">收件人：</button>
+				               </span>
+				               <input type="text" class="form-control" name="name" id="inputEmail3" value="{{request.session.webuser.name}}">
+				             </div><!-- /input-group -->
+			       		</div>
+			           <br>
+			        	<div class="col-md-8 col-md-offset-2">
+				             <div class="input-group">
+				               <span class="input-group-btn">
+				                 <button class="btn btn-default" type="button">联系电话</button>
+				               </span>
+				               <input type="text" class="form-control" name="phone" id="inputEmail3" value="{{request.session.webuser.phone}}">
+				             </div><!-- /input-group -->
+			        	</div>
+			            <br>
+			          	<div class="col-md-8 col-md-offset-2">
+				             <div class="input-group">
+				               <span class="input-group-btn">
+				                 <button class="btn btn-default" type="button">&nbsp;邮编&nbsp;&nbsp;：</button>
+				               </span>
+				               <input type="text" class="form-control" name="code" id="inputEmail3" value="{{request.session.webuser.code}}">
+				             </div><!-- /input-group -->
+			           	</div>		           
+			           	<br>
+			         	<div class="col-md-8 col-md-offset-2">
+				             <div class="input-group">
+				               <span class="input-group-btn">
+				                 <button class="btn btn-default" type="button">&nbsp;地址&nbsp;&nbsp;：</button>
+				               </span>
+				               <input type="text" class="form-control" name="address" id="inputEmail3" value="{{request.session.webuser.address}}">
+				             </div><!-- /input-group -->
+			        	</div>
+			        	<div class="col-md-6 col-md-offset-2">
+			        	<h4>总金额：¥:{{request.session.total}}元</h4>
+			        	</div>
+			     </div>
+			      <div class="modal-footer">
+			        <button type="reset" class="btn btn-default" data-dismiss="modal">关闭</button>
+			        <button type="submit" class="btn btn-primary">提交</button>
+			      </div>
+			    </div>
+			    </form>
+			  </div>
+			</div>
+			
+		</div>
+	</div>
+	<hr>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h3 class="panel-title">
+				购物清单信息
+			</h3>
+		</div>
+		<div class="panel-body">
+		<table class="table table-striped" >
+
+                <tr>
+                    <th>ID号</th>
+                    <th>名称</th>
+                    <th>图片</th>
+                    <th>单价</th>
+                    <th>数量</th>
+                    <th>小计</th>
+                </tr>
+                {% for shop in request.session.orderlist.values %}
+                	<tr>
+						<td>{{shop.id}}</td>
+						<td>{{shop.goods}}</td>
+						<td><img src="/static/goods/s_{{ shop.picname }}" width="50"></td>
+						<td>{{shop.price}}</td>
+						<td>{{shop.m}}</td>
+						<td>{% widthratio  shop.price 1 shop.m %}</td>
+                	<tr>
+
+                {% endfor%}
+            </table>
+		</div>
+	</div>
+</div>
+</div>
+
+{%endblock%}
+ <!-- end详情内容 -->
+<!-- {% block details_js%}
+
+{%endblock%} -->

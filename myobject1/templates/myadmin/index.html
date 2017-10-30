@@ -1,0 +1,127 @@
+{% extends "myadmin/base.html" %}
+{%block mainbody%}
+
+<h2>
+	商城网站后台管理首页
+</h2>
+<div class="hero-unit" style=" padding-left:0px;padding-right: 0px ">
+	<h1 style=" text-align: center ">
+		Welcome!
+	</h1>
+	<p style=" text-align: center ">
+		亲 , 欢 迎 来 到 后 台 管理	</p>
+	<br>
+	<p style=" padding-left: 10px ">新 的 订 单 :</p>
+	<br>
+	{% for orders in orderslist %}
+	<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+		<div class="panel panel-default">
+		    <div class="panel-heading" role="tab" id="heading{{orders.id}}">
+				<table class="table table-bordered table-striped" style=" font-size:14px; margin-bottom: 0px ">
+					<thead>
+						<tr>
+							<th>
+								id
+							</th>
+							<th>
+								会员id号
+							</th>
+							<th>
+								联系人
+							</th>
+							<th>
+								电话
+							</th>
+							<th>
+								地址
+							</th>
+							<th>
+								购买时间
+							</th>
+							<th>
+								总金额
+							</th>
+							<th>
+								状态
+							</th>
+							<th>
+								操作
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+							<tr>
+								<td>{{orders.id}}</td>
+								<td>{{orders.uid}}</td>
+								<td>{{orders.linkman}}</td>
+								<td>{{orders.phone}}</td>
+								<td>{{orders.address}}</td>
+								<td>{{orders.ptime}}</td>
+								<td>{{orders.total}}</td>
+								{% if orders.status == 0 %}
+									<td>新订单</td>
+								{% elif orders.status == 1 %}
+									<td>已发货</td>
+								{% elif orders.status == 2 %}
+									<td>已收货</td>
+								{% else %}
+									<td>无效订单</td>
+								{% endif %}
+								<td >
+									<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{orders.id}}" aria-expanded="false" aria-controls="collapse{{orders.id}}">
+									  查看详情
+									</a>
+								</td>				
+							</tr>
+					</tbody>
+				</table>
+		        
+
+		    </div>
+		    <div id="collapse{{orders.id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{orders.id}}">
+		      <div class="panel-body">
+		        <table class="table table-bordered table-striped" >
+		        	<thead>
+		        		<tr style=" font-size:14px; ">
+		        			<td>id</th>
+		        			<td>订单id号</td>
+		        			<td>商品id号</td>
+		        			<td>商品名称</td>
+		        			<td>商品图片</td>
+		        			<td>单价</td>
+		        			<td>数量</td>
+		        		</tr>
+		        	</thead>
+		        	<tbody data-toggle="collapse" data-toggle="collapse" data-parent="#accordion">
+		        		{% for details in detailslsit %}
+		        		{% if orders.id == details.orderid %}
+		        			<tr style=" font-size:12px; ">
+		        				<td>{{details.id}}</td>
+		        				<td>{{details.orderid}}</td>
+		        				<td>{{details.goodsid}}</td>
+		        				<td>{{details.name}}</td>
+		        				<td>
+		        				<img src="/static/goods/s_{{details.picname}}" alt="" width="40px">
+		        				</td>
+		        				<td>{{details.price}}</td>
+		        				<td>{{details.num}}</td>
+
+		        			</tr>
+		        			{% endif %}
+		        		{% endfor %}
+
+		        	</tbody>
+		        </table>
+
+
+		      </div>
+		    </div>
+		  </div>
+	</div>
+	<br>
+	{% endfor %}
+</div>
+
+
+{%endblock%}

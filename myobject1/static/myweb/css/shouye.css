@@ -1,0 +1,204 @@
+body,div,img,a,ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+.clearfix:after,.clearfix:before{ content: "";display: table;}
+.clearfix:after{ clear:both;}
+.clearfix{zoom:1;}
+body { padding-top: 70px; background: #EDEDED}
+/*导航*/
+.tubiao{
+	margin-left: 50px;
+}
+.zxsc{
+	margin-left: 20px;
+}
+.daozi{
+	margin-right: 50px;
+}
+.daozi li{
+	margin-left: 20px;
+}
+.hangss p{
+	margin-left: 20px;
+	float: left;
+}
+.hangss img{
+	margin-left: 20px;
+	float: left;
+}
+
+
+/*标题*/
+.biao{
+	height: 70px;
+}
+.biao div{
+	margin-top: 10px;
+	padding: 0px;
+
+}
+.biao a{
+	color: #666666;
+	font-size: 14px;
+}
+.biao a:hover{
+	color: #5079d9;
+}
+
+/*手机移入移除图*/
+.cftu{
+	border-top: 1px solid #8E8E8E;
+	text-align: center;
+	display: none;
+}
+.cftu h3{
+	font-size: 12px;
+	color: #616161;
+}
+.cftu p{
+	font-size: 14px;
+	color: #d44d44;
+	font-weight: 700;
+}
+.cftu .tu1{
+	border: 0px;
+	background:  #EDEDED
+}
+
+
+/*4附图设置*/
+.futu{
+	height: 251px;
+}
+.futu div{ 
+	padding: 0px;
+}
+/*热门商品内容*/
+.nt a{
+	font-size: 20px;
+}
+.ng{
+	text-align: center;
+}
+.ng h3{
+	font-size: 16px;
+}
+.ng p{
+	font-size: 12px;
+}
+.ng .nbi{
+	color: red;
+	/*font-weight: bold;*/
+	font-size: 16px;
+}
+.ng .tow{
+	border-radius: 0px;
+	padding: 0px;
+	margin-bottom: 0px;
+	border-right: 0px;
+	border-top: 0px;
+}
+
+.nrkg .anniu{
+	display: none;
+}
+
+
+/*官方精选*/
+.gft a{
+	font-size: 20px;
+}
+.gfjx{
+	text-align: center;
+}
+.gfjx h3{
+	font-size: 16px;
+}
+.gfjx p{
+	font-size: 12px;
+	color: #BDB2C7;
+}
+.gfjx .nbi{
+	color: red;
+	font-weight: bold;
+	font-size: 14px;
+}
+.gfjx .tow,.one{
+	border-radius: 0px;
+	padding: 0px;
+	margin-bottom: 0px;
+	border-right: 0px;
+	border-top: 0px;
+	/*border-bottom: 0px;*/
+
+
+}
+/*尾部*/
+.weizi h3{
+	font-size: 12px;
+	color: #646464;
+}
+.weizi li a{
+	font-size: 12px;
+	color: #969696;
+}
+.dianhua{
+	font-size: 30px;
+	float: right;
+}
+.shijian{
+	color: #CBC3D2;
+	font-size: 14px;
+	float: right;
+}
+
+.zxbz{
+	color: #5098E4;
+	float: right;
+}
+.copy{
+	color: #757575;
+	font-size: 12px;
+}
+.dibu a{
+	font-size: 12px;
+	border-left: 1px solid #CCCCCC;
+	padding-left: 10px;
+}
+.xia{
+	font-size: 12px;
+	color: #C7BDC7;
+}
+.guoqi{
+	width: 16px;
+	height: 15px;
+	background: url(../img/guoqi.png);
+	float: left;
+	margin-top: 2px;
+}
+.zw{
+	float: left;
+	font-size: 12px;
+	margin-top: 2px;
+}
+.meiguo{
+	float: left;
+	margin-left: 2px;
+	width: 16px;
+	height: 15px;
+	background: url(../img/guoqi.png) 0px 50px;
+	margin-top: 2px;
+}
+/*英语*/
+.ying{
+	float: left;
+	font-size: 12px;
+}
+
+.fding{
+	position: fixed;
+	top: 85%;
+	left: 95%;
+}

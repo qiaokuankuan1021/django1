@@ -1,0 +1,35 @@
+{% extends "myadmin/base.html" %}
+{%block mainbody%}	
+	<h3>
+		商品类别管理
+	</h3>
+	<form id="edit-profile" class="form-horizontal" action="{% url 'myadmin_shoptypeinsert' %}" method="post">
+	{% csrf_token %}
+	<input type="hidden" name="pid" value="{{pid}}">
+	<input type="hidden" name="path" value="{{path}}">
+		<fieldset>
+			<legend>添加商品类别信息</legend>
+			<div class="control-group">
+				<label class="control-label" for="input01">分类名称 :</label>
+				<div class="controls">
+					<input type="text" class="input-xlarge" id="input01" name="name" />
+				</div>
+			</div>
+			<div class="control-group">
+				<label class="control-label" for="input01">分类id :</label>
+				<div class="controls">
+					<select class="form-control">
+					  <option>{{pid}}:{{name}}</option>
+					</select>
+				</div>
+			</div>
+					
+			<div class="form-actions">
+				<button type="submit" class="btn">添加</button>
+				<button type="reset" class="btn">重置</button>
+				<span class="shuom" style="color:red;margin-left:10px"> </span>
+
+			</div>
+		</fieldset>
+	</form>
+{%endblock%}

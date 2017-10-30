@@ -1,0 +1,266 @@
+{% extends "myweb/base.html" %}
+{% load static from staticfiles %}
+{% block block_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/shouye.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/denglu.css' %}">
+{% endblock %}
+
+{%block webbody%}
+<!-- 主体开始 -->
+	<div class="container-fluid">
+		<!-- 标题 -->
+		<div class="row ">
+			<div class="col-xs-9  col-xs-offset-1">
+				<div class="row biao">
+					<div class="col-xs-2 col-md-1" ><a href="" style="font-weight:bold">首页</a></div>
+					<div class="col-xs-2 col-md-1 "><a href="#" class="shouji">手机</a></div>
+					<div class="col-xs-3 col-md-1"><a href="{% url 'list' %}">官方配件</a></div>
+					<div class="col-xs-5 col-md-2"><a href="#">"足迹系列"手感膜</a></div>
+					<div class="col-xs-3 col-md-1"><a href="#">周边产品</a></div>
+					<div class="col-xs-3 col-md-1"><a href="#">第三方配件</a></div>
+					<div class="col-xs-3 col-md-1"><a href="#">全部商品</a></div>
+					<div class="col-xs-3 col-md-1"><a href="#">服务</a></div>
+
+				</div>
+			</div>
+		<!-- 标题结束 -->
+		</div>
+
+		<!-- 手机的触发图 -->
+		<!-- <div class="row cftu ">
+			<div class="col-xs-6 col-xs-offset-3">
+				<div class="row">
+					<div class="col-xs-3  col-xs-offset-3 " style="border-right: 1px solid #8E8E8E; margin-top: 10px; ">
+						<div class="thumbnail tu1" >
+						 <img src="{% static 'myweb/img/chu1.png' %}" alt="">
+						<h3>坚果 Pro</h3>
+						<p>¥1499.00起</p>
+						</div>
+					</div>
+					<div class="col-xs-3 " style="margin-top: 10px; ">
+						<div class="thumbnail tu1" >
+						<img src="{% static 'myweb/img/chu2.png' %}" alt="">
+						<h3>Smartisan M1/M1L</h3>
+						<p>¥2499.00起</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+
+
+
+
+		<!-- 轮播图 -->
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1" style="padding: 0px">
+			<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+			  <!-- Indicators -->
+			  <ol class="carousel-indicators">
+			    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+			    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+			  </ol>
+
+			  <!-- Wrapper for slides -->
+			  <div class="carousel-inner" role="listbox">
+			    <div class="item active">
+			      <img src="{% static 'myweb/img/lun1.png' %}" alt="...">
+			     
+			    </div>
+			    <div class="item">
+			      <img src="{% static 'myweb/img/lun2.png' %}" alt="...">
+			     
+			    </div>
+			    <div class="item">
+			      <img src="{% static 'myweb/img/lun3.png' %}" alt="...">
+			  
+			  	</div>
+
+				  <!-- Controls -->
+				  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+				    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				    <span class="sr-only">Previous</span>
+				  </a>
+				  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+				    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+				    <span class="sr-only">Next</span>
+				  </a>
+			  </div>
+			</div>
+			</div>
+		<!-- end 轮播图 -->
+		</div>
+
+		<br>
+
+		<!-- 4张附图 -->
+		<div class="row ">
+			<div class="col-xs-10 col-xs-offset-1">
+				<div class="row  futu ">
+					<div class="col-md-3 col-xs-6">
+						<img src="{% static 'myweb/img/4.png' %}" width="99%">
+					</div>
+					<div class="col-md-3 col-xs-6">
+						<img src="{% static 'myweb/img/6.jpg' %}" width="99%">
+					</div>
+					<div class="col-md-3 col-xs-6">
+						<img src="{% static 'myweb/img/7.jpg' %}" width="99%">
+					</div>
+					<div class="col-md-3 col-xs-6">
+						<img src="{% static 'myweb/img/8.jpg' %}" width="99%">
+					</div>
+				</div>
+			</div>
+		<!-- end 4张附图 -->
+		</div>
+
+		<!--热门商品内容 -->
+		<div class="row ">
+			<div class="col-xs-10 col-xs-offset-1 panel panel-default " style="border-bottom: 0px">
+				<div class="row panel-body nt" >
+					<a href="" style="color:#66667A ">热门商品</a>
+				</div>
+				<div class="row ng panel-footer" style="padding: 0px">
+				  <div class="col-xs-6 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+
+				    <div class=" tow thumbnail">
+				      <img src="{% static 'myweb/img/10.jpg' %}" alt="" width="100%">
+				      <div class="caption">
+				        <h3> S -1001 圈铁线控耳机</h3>
+				        <p>极剪造型,复合振膜,专业级调音</p>
+				        <p class="nbi">¥199.00</p>
+				        <p class="anniu"><a href="" class="btn btn-primary btn-xs" role="button">购买</a> <a href="" class="btn btn-default btn-xs" role="button">加入购物车</a>
+				        </p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-xs-6 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+				    <div class="tow thumbnail">
+				      <img src="{% static 'myweb/img/10.png' %}" alt="" width="100%">
+				      <div class="caption">
+				        <h3> T桖 人类首次登陆月球</h3>
+				        <p>100%美国SUPIMA棉拉绒质地</p>
+				        <p class="nbi">¥149.00</p>
+				        <p class="anniu"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a>
+				        </p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-xs-6 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+				    <div class="tow thumbnail">
+				      <img src="{% static 'myweb/img/19.jpg' %}" alt="" width="100%">
+				      <div class="caption">
+				        <h3>极米无屏电视  &nbsp;&nbsp;&nbsp;CC</h3>
+				        <p style="color: #E04E4E">极米无屏电视限时优惠,高清无码</p>
+				        <p class="nbi">¥2699.00</p>
+				        <p class="anniu"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a>
+				        </p>
+				      </div>
+				    </div>
+				  </div>
+				  <div class="col-xs-6 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+				    <div class="tow thumbnail">
+				      <img src="{% static 'myweb/img/6.png' %}" alt="" width="100%">
+				      <div class="caption">
+				        <h3>M1/M1L软胶保护套</h3>
+				        <p style="color: #E04E4E">TPU环保材质,细腻防滑,防油污</p>
+				        <p class="nbi">¥19.00</p>
+				        <p class="anniu"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a>
+				        </p>
+				      </div>
+				    </div>
+				  </div>
+				</div>
+			</div>
+		<!-- end 热门商品内容 -->
+		</div>
+		
+		<!-- 官方精选 -->
+		<div class="row">
+			<div class="col-xs-offset-1 col-xs-10 panel panel-default">
+				<div class="row panel-body gft">
+					<a href="#"  style="color:#66667A ">官方精选</a>
+				</div>
+				<div class="row  panel-footer gfjx" style="padding: 0px">
+					<div class="col-xs-12  col-md-6" style="padding: 0px">
+						<div class="one thumbnail  ">
+							<img src="{% static 'myweb/img/5.png' %}" alt="" width="100%">
+						</div>
+					</div>
+					 <div class="col-xs-12 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+					  <div class="tow thumbnail">
+					    <img src="{% static 'myweb/img/11.jpg' %}" alt="..." >
+					    <div class="caption">
+					      <h3>Smartisan 坚果自拍杆</h3>
+					      <p>航空铝合金伸缩杆防过敏硅胶手柄</p>
+					      <p class="nbi">¥199.00</p>
+						  <p class="anniu" style="font-size: 14px">查看详情</p>
+					    </div>
+					  </div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+					  <div class="tow thumbnail">
+					    <img src="{% static 'myweb/img/12.jpg' %}" alt="..." >
+					    <div class="caption">
+					      <h3>坚果 Pro 软胶保护套</h3>
+					      <p>TPU 环保材质,耐磨,耐油,耐久性强</p>
+					      <p class="nbi">¥49.00</p>
+					      <p class="anniu" style="font-size: 14px">查看详情</p>
+					    </div>
+					  </div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+					  <div class="tow thumbnail">
+					    <img src="{% static 'myweb/img/13.jpg' %}" alt="..." >
+					    <div class="caption">
+					      <h3>Smartisan 原装 Type-C 数据线</h3>
+					      <p>PTC 过温保护,凹形设计,TPE环保材质</p>
+					      <p class="nbi">¥39.00</p>
+					      <p class="anniu" style="font-size: 14px">查看详情</p>
+					    </div>
+					  </div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+					  <div class="tow thumbnail">
+					    <img src="{% static 'myweb/img/14.jpg' %}" alt="..." >
+					    <div class="caption">
+					      <h3>Smartisan 原装快充充电器 18W</h3>
+					      <p>18W安全快充,支持主流QC3.0,2.0快充</p>
+					      <p class="nbi">¥199.00</p>
+					      <p class="anniu" style="font-size: 14px">查看详情</p>
+					    </div>
+					  </div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+					  <div class="tow thumbnail">
+					    <img src="{% static 'myweb/img/15.jpg' %}" alt="..." >
+					    <div class="caption">
+					      <h3>Smartisan 双向快充移动电源</h3>
+					      <p>10000mAh双向快充,轻盈便捷,高标准安全保护</p>
+					      <p class="nbi">¥199.00</p>
+					      <p class="anniu" style="font-size: 14px">查看详情</p>
+					    </div>
+					  </div>
+					</div>
+					<div class="col-xs-12 col-sm-6 col-md-3 nrkg" style="padding: 0px">
+					  <div class="tow thumbnail">
+					    <img src="{% static 'myweb/img/16.jpg' %}" alt="..." >
+					    <div class="caption">
+					      <h3>坚果 Pro 钢化玻璃保护膜(前屏用)</h3>
+					      <p>高达92%的超强透光率,耐刮花,防指纹</p>
+					      <p class="nbi">¥49.00</p>
+					      <p class="anniu" style="font-size: 14px">查看详情</p>
+					    </div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		<!-- end 官方精选 -->
+		</div>		
+	<!-- 主体结束 -->
+	</div>
+{% endblock %}
+{% block block_js %}
+<script src="{% static 'myweb/js/shouye.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "myadmin/base.html" %}
+{%block mainhead%}
+<script>
+	function doDel(uu){
+		if(confirm('确定要删除吗?')){
+			window.location=uu;
+		}
+	}
+</script>
+{%endblock%}
+{%block mainbody%}
+	<h3>
+		浏览用户信息
+	</h3>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>
+					用户id
+				</th>
+				<th>
+					账号
+				</th>
+				<th>
+					真实姓名
+				</th>
+				<th>
+					密码
+				</th>
+				<th>
+					性别
+				</th>
+				<th>
+					电话
+				</th>
+				<th>
+					状态
+				</th>
+				<th>
+					操作
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in userlist %}
+				<tr>
+					<td>{{user.id}}</td>							
+					<td>{{user.username}}</td>				
+					<td>{{user.name}}</td>				
+					<td>{{user.password}}</td>
+					{% if user.sex == '0' %}
+						<td>男</td>
+					{% else %}
+						<td>女</td>
+					{%endif%}
+					<td>{{user.phone}}</td>							
+					{% if user.state == 0 %}
+						<td>后台管理员</td>
+					{% elif user.state == 1 %}
+						<td>启用</td>
+					{% else %}
+						<td>禁用</td>
+					{%endif%}			
+					<td>
+						<a class="btn btn-default" href="{% url 'myadmin_usersedit' user.id %}">编辑</a>			
+						<a class="btn btn-default" href="javascript:doDel('{% url 'myadmin_usersdel' user.id %}');">删除</a>
+					</td>				
+
+				</tr>
+			{% endfor %}
+
+		</tbody>
+	</table>		
+<div class="pagination">
+		<ul>
+			{%for pindex in plist%}
+			<li>
+				<a  href="{% url 'myadmin_usersindex' pindex %}" >{{pindex}}</a>
+			</li>
+			{% endfor %}
+		</ul>
+</div>
+	
+{%endblock%}

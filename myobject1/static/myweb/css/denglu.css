@@ -1,0 +1,100 @@
+body,div,img,a,ul,li{
+	padding: 0px;
+	margin: 0px;
+	list-style: none;
+}
+.clearfix:after,.clearfix:before{ content: "";display: table;}
+.clearfix:after{ clear:both;}
+.clearfix{zoom:1;}
+body { 
+	padding-top: 70px;
+	background: url(../img/dl/1.png);
+	background-repeat: repeat;;
+	}
+
+/*登录*/
+.deng{
+	text-align: center;
+}
+.deng h4{
+	margin-top: 0px;
+}
+.deng .ren button{
+	padding: 0px;
+	background: url('../img/dl/3.png');
+	height: 46px;
+	width: 46px;
+}
+.deng input{
+	height: 46px;
+	width: 46px;
+}
+.deng .yao button{
+	padding: 0px;
+	background: url('../img/dl/4.png');
+	height: 46px;
+	width: 46px;
+}
+.yuan{
+	margin-top: 10px;
+}
+.yuan .quan{
+	height: 20px;
+	width: 19px;
+	background: url('../img/dl/5.png') 0 -18px no-repeat;
+	cursor: pointer;
+	float: left;
+	margin-left: 5px;
+}
+.yuan span{
+	float: left;
+	font-size: 12px;
+	cursor: pointer;
+	margin-top: 2px;
+	margin-left: 5px;
+	color: #999999;
+}
+.yuan a{
+	color: #5079d9;
+	cursor: pointer;
+	font-size: 12px;
+}
+.yuan .anniu{
+	/*color: #666;*/
+}
+
+.yuan ul li{
+	float: left;
+	margin-right: 10px;
+}
+.yuan .qita{
+	color: #999999;
+	font-size: 12px;
+}
+.yuan .guoji{
+	padding: 0px;
+}
+
+.yuan .guoji a{
+	color: #999999;
+	font-size: 12px;
+}
+
+/*尾部*/
+.zxbz{
+	color: #5098E4;
+	float: right;
+}
+.copy{
+	color: #757575;
+	font-size: 12px;
+}
+.dibu a{
+	font-size: 12px;
+	border-left: 1px solid #CCCCCC;
+	padding-left: 10px;
+}
+.xia{
+	font-size: 12px;
+	color: #C7BDC7;
+}

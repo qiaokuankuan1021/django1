@@ -1,0 +1,143 @@
+{% extends "myweb/base.html" %}
+{% load static from staticfiles %}
+<!-- css样式 -->
+{%block block_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/denglu.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/shouye.css' %}">
+{% endblock %}
+
+
+{%block webbody%}
+<!-- 主体 -->
+	<div class="container">
+	  <form action="{% url 'dologin' %}" method="post">
+	  {% csrf_token %}
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-default">
+				  <div class="panel-body deng" >
+					<!-- 大图标 -->
+				    <div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<img src="/static/myweb/img/dl/2.png" alt="">
+							<h4>使用 Smartisan ID 登录在线商城</h4>
+						</div>
+				    </div>
+					<!-- 输入框1 -->
+				    <div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<br>
+							<br>
+							<div class="input-group ren">
+							      <span class="input-group-btn ">
+							        <button class="btn btn-default" type="button">
+							        <!-- <img src="./public/img/dl/3.png" alt=""> -->
+							        </button>
+							      </span>
+							      <input type="text" name="username" class="form-control" placeholder="账号">
+							</div><!-- /input-group -->
+						</div>
+				    </div>
+				    <!-- 输入框2 -->
+				    <div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<br>
+							<div class="input-group yao">
+							      <span class="input-group-btn">
+							        <button class="btn btn-default" type="button">
+							        <!-- <img src="./public/img/dl/4.png" alt=""> -->
+							        </button>
+							      </span>
+							      <input type="password" name="password" class="form-control" placeholder="密码">
+							</div><!-- /input-group -->
+						</div>
+				    </div>
+					<div class="row">
+						<div class="col-md-6 col-md-offset-1">
+							<br>
+							<div class="input-group yao">
+							      
+							      <input type="text" name="code" class="form-control" placeholder="请输入验证码">
+							</div>
+						</div>
+
+						<div class="col-md-4" >
+							<br>
+							<div class="input-group yao">
+						       <img  src="{% url 'verify' %}" onclick="this.src='{% url 'verify' %}?sn='+Math.random()"/>
+						</div>
+					</div>
+
+
+							     
+						
+				    </div>
+				    <div class="row yuan">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="row">
+								<div class="col-md-6 col-sm-3 col-xs-4" >
+									<div class="quan"></div>
+									<span>自动登录</span>
+								</div>
+								<div class="col-md-4 col-sm-3 col-xs-5">
+									<a href="{% url 'useradd' %}">注册 Smartisan ID</a>
+								</div>
+								<div class="col-md-2 col-sm-3 col-xs-3" style="padding: 0px">
+									<a href="">
+										忘记密码?
+									</a>
+								</div>
+							</div>
+							
+						</div>
+				    </div>
+				    <br>
+				    <div class="row yuan">
+						<div class="col-md-10 col-md-offset-1 " style="text-align: center">
+							<span style="color: red;font-size: 16px;">{{info}}</span>
+						</div>
+				    </div>
+
+				    <div class="row yuan">
+						<div class="col-md-10 col-md-offset-1 anniu1">
+							<button   class="btn btn-primary btn-lg btn-block " >登录</button>
+						</div>
+				    </div>
+
+				    <div class="row yuan">
+				    	<div class="col-md-10 col-md-offset-1">
+							<br>
+							<hr>
+						</div>
+				    </div>
+
+					<div class="row yuan">
+				    	<div class="col-md-10 col-md-offset-1">
+							<div class="row">
+								<div class="col-md-9 col-xs-7">
+									<ul >
+										<li class="qita">其他账号登录:</li>
+										<li><img src="/static/myweb/img/dl/6.png" alt=""></li>
+									</ul>
+								</div>
+								<div class="col-md-3 col-xs-3 guoji" >
+									<a >国际手机号登录 ></a>
+								</div>
+							</div>
+						</div>
+				    </div>
+
+
+				  </div>
+				</div>
+			</div>
+		</div>
+	  </form>
+	<!-- 主体结束 -->
+	</div>
+{% endblock %}
+
+<!-- js样式 -->
+{% block block_js %}
+<!-- <script src="{% static 'myweb/js/denglu.js' %}"></script> -->
+{% endblock %}

@@ -1,0 +1,279 @@
+{% extends "myweb/base.html" %}
+{% load static from staticfiles %}
+{%block block_css%}
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/sp.css' %}">
+<!-- <link rel="stylesheet" type="text/css" href="{% static 'myweb/css/denglu.css' %}"> -->
+<link rel="stylesheet" type="text/css" href="{% static 'myweb/css/shouye.css' %}">
+{% endblock %}
+
+{%block webbody%}
+<!-- 主体开始 -->
+	<div class="container-fluid">
+		<!-- 标题 -->
+		<div class="row ">
+			<div class="col-xs-10  col-xs-offset-1 biaoti">
+				<div class="row biao">
+					<div class="col-xs-2 col-md-1" ><a href="{{ request.path }}" style="font-weight:bold">全部 </a></div>
+					{% for a in types %}
+					<div class="col-xs-2 col-md-1"><a href="{{ request.path }}?ttid={{a.id}}">{{a.name}}</a></div>
+					{% endfor %}
+				
+				</div>
+			</div>
+		</div>
+		<div class="row ">
+			<div class="col-xs-9  col-xs-offset-1 biaoti_2">
+				<div class="row biao">
+					<div class="col-xs-3 col-sm-2 col-md-1"><a href="#">综合排序</a></div>
+
+					<div class="col-xs-1 col-sm-2 col-md-1 spans">·</div>
+					<div class="col-xs-3 col-sm-2 col-md-1"><a href="#">价格低到高</a></div>
+					<div class="col-xs-1 col-sm-2 col-md-1 spans">·</div>
+					<div class="col-xs-3 col-sm-2 col-md-1"><a href="#">价格高到低</a></div>
+				</div>
+			</div>
+		<!-- 标题结束 -->
+		</div>
+
+		<!-- 内容 -->
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<div class="row">
+					<div class="col-xs-12 nr">
+						<div class="panel panel-default">
+						  <div class="panel-body" style="padding: 0px;">
+						  		<div class="ng row">
+
+								{% for i in goodslist %}
+									
+								
+						  		   <div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="/static/goods/{{i.picname}}" alt="">
+						  			    <div class="caption">
+						  			      <h3>{{i.goods}}</h3>
+						  			      <p>{{i.descr}}</p>
+						  			      <p class="nbia">¥{{i.price}}</p>
+						  			      <p class="goumai"><a href="{% url 'detail' i.id %}" class="btn btn-primary btn-xs" role="button">购买</a> <a href="" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+
+								{% endfor %}
+
+						  			<!-- <div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/2.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>Smartisan Type-C数据线</h3>
+						  			      <p>PTC 过温保护、凹形设计、TPE 环保材质</p>
+						  			      <p class="nbia">¥39.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/4.png' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>Micro-USB至Type-C转接头</h3>
+						  			      <p>即插即用、全面兼容快捷方便、轻巧便捷</p>
+						  			      <p class="nbia">¥29.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/3.png' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>Smartisan 二合一数据线</h3>
+						  			      <p>Type-C  Micro-USB 双接口、夜间微光灯</p>
+						  			      <p class="nbia">¥39.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/5.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>Smartisan 耳机转接头</h3>
+						  			      <p>即插即用、全面兼容</p>
+						  			      <p class="nbia">¥19.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/6.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>Smartisan 快充移动电源</h3>
+						  			      <p>10000mAh 双向快充、高标准安全</p>
+						  			      <p class="nbia">¥199.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/7.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>双口快充车载充电器球</h3>
+						  			      <p>铝合金机身、双口快充、智能调节</p>
+						  			      <p class="nbia">¥99.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/8.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>S-100半入耳式线控耳机</h3>
+						  			      <p>14.2mm 发音单元、三按键式线控</p>
+						  			      <p class="nbia">¥99.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang"  style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/9.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>《日本制造，索尼设计》</h3>
+						  			      <p>盛田昭夫的日式经营学</p>
+						  			      <p class="nbia">¥58.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/10.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>《索尼设计，塑造现代》</h3>
+						  			      <p>索尼全盛时期工业设计作品</p>
+						  			      <p class="nbia">¥259.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/11.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>极米无屏电视 CC</h3>
+						  			      <p>720P 高清分辨率、两万毫安续航力</p>
+						  			      <p class="nbia">¥2699.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/12.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>极米无屏电视 H1S</h3>
+						  			      <p>哈曼卡顿音响、左右梯形校正</p>
+						  			      <p class="nbia">¥4799.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/13.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>FIIL CARAT 蓝牙运动耳机</h3>
+						  			      <p>智能计步佩戴舒适</p>
+						  			      <p class="nbia">¥499.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/14.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>FIIL 智能蓝牙无线降噪耳机</h3>
+						  			      <p>手势触控、智能启停</p>
+						  			      <p class="nbia">¥999.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/15.png' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>声波电动牙刷</h3>
+						  			      <p>锤子科技荣誉五周年纪念版</p>
+						  			      <p class="nbia">¥598.00</p>
+						  			      <p class="goumai"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+						  			<div class="col-xs-6 col-sm-6 col-md-3 kuang" style="padding: 0px;">
+						  			  <div class="tow thumbnail">
+						  			    <img src="{% static 'myweb/img/sp/16.jpg' %}" alt="">
+						  			    <div class="caption">
+						  			      <h3>《深泽直人》</h3>
+						  			      <p>首次面向中国读者介绍其作品</p>
+						  			      <p class="nbia">¥199.00</p>
+						  			      <p class="goumai btn-xs"><a href="#" class="btn btn-primary btn-xs" role="button">购买</a> <a href="#" class="btn btn-default btn-xs" role="button">加入购物车</a></p>
+						  			    </div>
+						  			  </div>
+						  			</div>
+ -->
+
+
+
+						  		</div>
+						  </div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- 售后 -->
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<div class="row">
+					<div class="panel panel-default">
+					  <div class="panel-body">
+							<div class="col-md-3 col-xs-6 zxkf" >
+								<div class="kefu"></div>
+								<h5>在线客服</h5>
+								<h6>周一至周日 9:00-18:00</h6>
+							</div>
+							<div class="col-md-3 col-xs-6 zxkf" >
+								<div class="wuliyou"></div>
+								<h5>七天无理由退货</h5>
+								<h6>七天无理由退货 请放心购买</h6>
+							</div>
+							<div class="col-md-3 col-xs-6 zxkf" >
+								<div class="mianfei"></div>
+								<h5>15天免费换货</h5>
+								<h6>15天内如遇质量问题 免费换货</h6>
+							</div>
+							<div class="col-md-3 col-xs-6 zxkf" >
+								<div class="myf"></div>
+								<h5>满150元免运费</h5>
+								<h6>全场使用顺丰快递</h6>
+							</div>
+					  </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	<!-- 主体结束 -->
+	</div>
+
+{% endblock %}
+
+{% block block_js %}
+<script src="{% static 'myweb/js/sp.js' %}"></script>
+{% endblock %}
